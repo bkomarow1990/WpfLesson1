@@ -1,0 +1,31 @@
+﻿<Window x:Class="WpfLesson1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfLesson1"
+        mc:Ignorable="d"
+        Title="Main" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Test" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" BorderBrush="#FFC91C1C" FontFamily="Bahnschrift SemiBold" FontSize="18" Height="42" Width="156" VerticalAlignment="Center" FontStyle="Normal" Foreground="White" Click="Button_Click" Name="testBtn">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF996969"/>
+                    <GradientStop Color="#FFE21818" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Test2" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" BorderBrush="#FFC91C1C" FontFamily="Bahnschrift SemiBold" FontSize="18" Height="42" Width="156" VerticalAlignment="Top" FontStyle="Normal" Foreground="White" x:Name="testBtn2" Margin="0,259,0,0" Click="testBtn2_Click" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF996969"/>
+                    <GradientStop Color="#FFE21818" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBlock Text="TestTextBlock" Name="txtBlock1" AutomationProperties.HelpText="fg" Margin="359,321,286,56"/>
+    </Grid>
+</Window>
