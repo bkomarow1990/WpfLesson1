@@ -1,34 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dev\\source\\repos\\WpfLesson1\\CalcClasswork\\CalcClasswork.csproj": {}
+    "C:\\Users\\Igor\\Source\\Repos\\WpfLesson1\\CalcClasswork\\CalcClasswork.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dev\\source\\repos\\WpfLesson1\\CalcClasswork\\CalcClasswork.csproj": {
+    "C:\\Users\\Igor\\Source\\Repos\\WpfLesson1\\CalcClasswork\\CalcClasswork.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dev\\source\\repos\\WpfLesson1\\CalcClasswork\\CalcClasswork.csproj",
+        "projectUniqueName": "C:\\Users\\Igor\\Source\\Repos\\WpfLesson1\\CalcClasswork\\CalcClasswork.csproj",
         "projectName": "CalcClasswork",
-        "projectPath": "C:\\Users\\dev\\source\\repos\\WpfLesson1\\CalcClasswork\\CalcClasswork.csproj",
-        "packagesPath": "C:\\Users\\dev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dev\\source\\repos\\WpfLesson1\\CalcClasswork\\obj\\",
+        "projectPath": "C:\\Users\\Igor\\Source\\Repos\\WpfLesson1\\CalcClasswork\\CalcClasswork.csproj",
+        "packagesPath": "C:\\Users\\Igor\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Igor\\Source\\Repos\\WpfLesson1\\CalcClasswork\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Igor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net5.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
             "projectReferences": {}
           }
         },
@@ -39,7 +37,14 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "System.Runtime": {
+              "target": "Package",
+              "version": "[4.3.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -58,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dev\\source\\repos\\WpfLesson1\\WpfLesson1\\WpfLesson1.csproj": {}
+    "C:\\Users\\Igor\\Source\\Repos\\WpfLesson1\\WpfLesson1\\WpfLesson1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dev\\source\\repos\\WpfLesson1\\WpfLesson1\\WpfLesson1.csproj": {
+    "C:\\Users\\Igor\\Source\\Repos\\WpfLesson1\\WpfLesson1\\WpfLesson1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dev\\source\\repos\\WpfLesson1\\WpfLesson1\\WpfLesson1.csproj",
+        "projectUniqueName": "C:\\Users\\Igor\\Source\\Repos\\WpfLesson1\\WpfLesson1\\WpfLesson1.csproj",
         "projectName": "WpfLesson1",
-        "projectPath": "C:\\Users\\dev\\source\\repos\\WpfLesson1\\WpfLesson1\\WpfLesson1.csproj",
-        "packagesPath": "C:\\Users\\dev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dev\\source\\repos\\WpfLesson1\\WpfLesson1\\obj\\",
+        "projectPath": "C:\\Users\\Igor\\Source\\Repos\\WpfLesson1\\WpfLesson1\\WpfLesson1.csproj",
+        "packagesPath": "C:\\Users\\Igor\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Igor\\Source\\Repos\\WpfLesson1\\WpfLesson1\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Igor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,6 +38,13 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "System.Runtime": {
+              "target": "Package",
+              "version": "[4.3.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -58,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

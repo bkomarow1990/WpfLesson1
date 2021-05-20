@@ -22,8 +22,10 @@ namespace CalcClasswork
     public partial class MainWindow : Window
     {
         bool isHaveComa = false;
+        bool isHaveComaSecond = false;
         int index_two = -1;
         bool isHaveOperation = false;
+        bool[] minuses = new bool[2];
         public MainWindow()
         {
             InitializeComponent();
@@ -56,100 +58,37 @@ namespace CalcClasswork
             {
                 return;
             }
-            resTxtBlock.Text = (new DataTable().Compute(resTxtBlock.Text, null)).ToString();
+            history.Text = resTxtBlock.Text;
+            string res = (new DataTable().Compute((resTxtBlock.Text).Replace(',', '.'), null)).ToString();
+            if (res == "∞")
+            {
+                MessageBox.Show("Can`t div to null");
+                return;
+            }
+            resTxtBlock.Text = res;
+            
             isHaveOperation = false;
             isHaveComa = false;
+            minuses[0] = false;
+            minuses[1] = false;
+            if (resTxtBlock.Text[0] == '-')
+            {
+                minuses[0] = true;
+            }
         }
 
-        private void btn1_Click(object sender, RoutedEventArgs e)
+        private void btnNum_Click(object sender, RoutedEventArgs e)
         {
+            char num = ((sender as Button).Content as string)[0];
             if (isFirstNull())
             {
-                this.resTxtBlock.Text = "1";
+
+                this.resTxtBlock.Text = num.ToString();
                 return;
             }
-            this.resTxtBlock.Text += '1';
+            this.resTxtBlock.Text += num;
         }
 
-        private void btn2_Click(object sender, RoutedEventArgs e)
-        {
-            if (isFirstNull())
-            {
-                this.resTxtBlock.Text = "2";
-                return;
-            }
-            this.resTxtBlock.Text += '2';
-        }
-
-        private void btn3_Click(object sender, RoutedEventArgs e)
-        {
-            if (isFirstNull())
-            {
-                this.resTxtBlock.Text = "3";
-                return;
-            }
-            this.resTxtBlock.Text += '3';
-        }
-
-        private void btn4_Click(object sender, RoutedEventArgs e)
-        {
-            if (isFirstNull())
-            {
-                this.resTxtBlock.Text = "4";
-                return;
-            }
-            this.resTxtBlock.Text += '4';
-        }
-
-        private void btn5_Click(object sender, RoutedEventArgs e)
-        {
-            if (isFirstNull())
-            {
-                this.resTxtBlock.Text = "5";
-                return;
-            }
-            this.resTxtBlock.Text += '5';
-        }
-
-        private void btn6_Click(object sender, RoutedEventArgs e)
-        {
-            if (isFirstNull())
-            {
-                this.resTxtBlock.Text = "6";
-                return;
-            }
-            this.resTxtBlock.Text += '6';
-        }
-
-        private void btn7_Click(object sender, RoutedEventArgs e)
-        {
-            if (isFirstNull())
-            {
-                this.resTxtBlock.Text = "7";
-                return;
-            }
-            this.resTxtBlock.Text += '7';
-        }
-
-        private void btn8_Click(object sender, RoutedEventArgs e)
-        {
-            if (isFirstNull())
-            {
-                this.resTxtBlock.Text = "8";
-                return;
-            }
-            this.resTxtBlock.Text += '8';
-        }
-
-        private void btn9_Click(object sender, RoutedEventArgs e)
-        {
-            if (isFirstNull())
-            {
-                this.resTxtBlock.Text = "8";
-                return;
-            }
-            this.resTxtBlock.Text += '9';
-        }
 
         private void btnPlus_Click(object sender, RoutedEventArgs e)
         {
@@ -192,13 +131,35 @@ namespace CalcClasswork
             }
             if (resTxtBlock.Text.Length == 1)
             {
+                if (resTxtBlock.Text == "-")
+                {
+                    minuses[0] = false;
+                    minuses[1] = false;
+                }
                 resTxtBlock.Text = "0";
                 return;
             }
-            if (isOperationChar(resTxtBlock.Text[resTxtBlock.Text.Length - 1]))
+            char symb = resTxtBlock.Text[resTxtBlock.Text.Length - 1];
+            if (isHaveOperation)
+            {
+                if (symb == ',')
+                {
+                    isHaveComaSecond = false;
+                }
+                
+            }
+            else
+            {
+                if (symb == ',')
+                {
+                    isHaveComa = false;
+                }
+            }
+            if (isOperationChar(symb) && isHaveOperation)
             {
                 isHaveOperation = false;
             }
+            
             
             resTxtBlock.Text = resTxtBlock.Text.Remove(resTxtBlock.Text.Length - 1, 1);
 
@@ -213,8 +174,8 @@ namespace CalcClasswork
 
             resTxtBlock.Text += '*';
             isHaveOperation = true;
+            index_two = resTxtBlock.Text.Length - 1;
         }
-
         private void btnDiv_Click(object sender, RoutedEventArgs e)
         {
             if (isHaveOperation)
@@ -224,17 +185,28 @@ namespace CalcClasswork
 
             resTxtBlock.Text += '/';
             isHaveOperation = true;
+            index_two = resTxtBlock.Text.Length - 1;
         }
 
         private void btnComa_Click(object sender, RoutedEventArgs e)
         {
 
             char res = resTxtBlock.Text[resTxtBlock.Text.Length - 1];
-            if (res == '0' || isOperationChar(res) || isHaveComa)
+            if (res == '0' || isOperationChar(res) )
             {
                 return;
             }
-            resTxtBlock.Text += '.';
+            if (isHaveComa && isHaveOperation)
+            {
+                if (isHaveComaSecond)
+                {
+                    return;
+                }
+                this.isHaveComaSecond = true;
+                resTxtBlock.Text += ',';
+                return;
+            }
+            resTxtBlock.Text += ',';
             isHaveComa = true;
         }
 
@@ -242,7 +214,38 @@ namespace CalcClasswork
         {
             isHaveOperation = false;
             isHaveComa = false;
+            isHaveComaSecond = false;
+            minuses[0] = false;
+            minuses[1] = false;
             resTxtBlock.Text = "0";
+        }
+
+        private void btnChangeSymb_Click(object sender, RoutedEventArgs e)
+        {
+            if (isHaveOperation)
+            {
+                if (minuses[1])
+                {
+                    resTxtBlock.Text = resTxtBlock.Text.Remove(index_two + 1,1);
+                    minuses[1] = false;
+                    return;
+                }
+                resTxtBlock.Text = resTxtBlock.Text.Insert(index_two+1,"-");
+                minuses[1] = true;
+                return;
+            }
+            if (resTxtBlock.Text == "0")
+            {
+                return;
+            }
+            if (minuses[0])
+            {
+                resTxtBlock.Text = resTxtBlock.Text.Remove(0,1);
+                minuses[0] = false;
+                return;
+            }
+            resTxtBlock.Text = resTxtBlock.Text.Insert(0, "-");
+            minuses[0] = true;
         }
     }
 }
